@@ -44,14 +44,20 @@
               </li> -->
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="" data-toggle="modal" data-target="#loginModal">Login <span class="glyphicon glyphicon-log-in"></span></a></li>
+              <%if params.required(:controller)== "registrations"%>
+                <li><p>already have an account?</p></li>
+                <li><a href="<%=new_user_session_path%>">Login <span class="glyphicon glyphicon-log-in"></span></a></li>
+              <%elsif params.required(:controller) == "sessions"%>
+                <li><p>newcomer?</p></li>
+                <li><a href="<%=new_user_registration_path%>">Sign-Up <span class="glyphicon glyphicon-user"></span></a></li>
+              <%end%>
             </ul>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <%unless params.require(:controller) == "home" %>
+  <%unless params.required(:controller) == "home" %>
     <div class='container'>
       <%= yield %>
     </div>
