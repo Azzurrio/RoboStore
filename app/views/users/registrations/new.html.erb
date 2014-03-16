@@ -1,43 +1,130 @@
 <%= stylesheet_link_tag "users", media: "all", "data-turbolinks-track" => true %>
 <div class="sign-form-wrapper pull-right">
-  <h2>Sign-Up &amp;> Have Fun! </h2>
-
-  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+    <h2 class='col-lg-offset-4 col-lg-8'>Sign-Up &amp;> Have Fun! </h2>
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name),html: {:class => 'form-horizontal'}) do |f| %>
     <%= devise_error_messages! %>
-    <div id="full-name-group" class="form-group">
-      <%= f.label :full_name %><br>
-      <%= f.text_field :fname, :class => 'form-control', :placeholder => "First Name" %>
-       <%= f.text_field :lname, :class => 'form-control pull-right', :placeholder => "Last Name" %>
+    <div id="full-name-group">
+      <%= f.label :full_name, :class => 'col-lg-4 control-label' %>
+      <div class="col-lg-4 form-group">
+        <%= f.text_field :fname, :class => 'form-control', :placeholder => "First Name", :name => 'fname' %>
+      </div>  
+      <div class="col-lg-4 form-group">
+        <%= f.text_field :lname, :class => 'form-control', :placeholder => "Last Name", :name => 'lname' %>
+      </div>
     </div>
     <div class="form-group">
-      <%= f.label :username %>
-      <%= f.text_field :username, :class => 'form-control', :placeholder => "Username" %>
+      <%= f.label :username, :class => 'col-lg-4 control-label'  %>
+      <div class="col-lg-8"> 
+        <%= f.text_field :username, :class => 'form-control', :placeholder => "Username", :name => 'username' %>
+      </div>
     </div>
     <div class="form-group">
-    	<%= f.label :email %>
-    	<%= f.email_field :email, :autofocus => true, :class => 'form-control', :placeholder => "Email" %>
+    	<%= f.label :email, :class => 'col-lg-4 control-label'  %>
+      <div class="col-lg-8"> 
+    	 <%= f.email_field :email, :autofocus => true, :class => 'form-control', :placeholder => "Email", :name => 'email' %>
+      </div>
     </div>
     <div class="form-group">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, :class => 'form-control', :placeholder => "Password"  %>
+      <%= f.label :password, :class => 'col-lg-4 control-label'  %>
+      <div class="col-lg-8"> 
+        <%= f.password_field :password, :class => 'form-control', :placeholder => "Password", :name => 'password'  %>
+      </div>
     </div>
 
     <div class="form-group">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, :class => 'form-control', :placeholder => "Password Confirmation"  %>
+      <%= f.label :password_confirmation, :class => 'col-lg-4 control-label'  %>
+      <div class="col-lg-8"> 
+        <%= f.password_field :password_confirmation, :class => 'form-control', :placeholder => "Password Confirmation", :name => 'password_confirmation'  %>
+      </div>
     </div>
 
-    <div class="form-group"><%= f.submit "I have Finished", :class => "btn btn-success" %></div>
+    <div class="form-group">
+      <div class='col-lg-offset-4 col-lg-8'>
+        <%= f.submit "I have Finished", :class => "btn btn-success" %>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <div class='col-lg-offset-4 col-lg-8 social-sign-wrapper'>
+        <a class="btn btn-social btn-github">
+          <i class="fa fa-github"></i> Sign up with Github
+        </a>
+        <a class="btn btn-social btn-google-plus">
+          <i class="fa fa-google-plus"></i> Sign up with Google+
+        </a>
+      </div>
+    </div>
+
   <% end %>
-
-  <div class="social-sign-wrapper">
-    <p>or connect using:</p>
-    <a class="btn btn-social btn-github">
-      <i class="fa fa-github"></i> Sign up with Github
-    </a>
-    <a class="btn btn-social btn-google-plus">
-      <i class="fa fa-google-plus"></i> Sign up with Google+
-    </a>
-  </div>
-
 </div>
+<script type="text/javascript">
+  
+  $(document).ready(function() {
+      $('form').bootstrapValidator({
+        feedbackIcons: {
+          valid: 'fa fa-check',
+          invalid: 'fa fa-times',
+          validating: 'fa fa-refresh'
+        },
+        submitButtons: 'button[type="submit"]',
+        submitHandler: null,
+        live: 'enabled',
+        fields: {
+          fname:{
+            validators:{
+              notEmpty:{
+                message: "Firstname can't be empty"
+              }
+            }
+          },
+          lname:{
+            validators:{
+              notEmpty:{
+                message: "Lastname Can't be empty"
+              }
+            }
+          },
+          username:{
+            validators:{
+              notEmpty:{
+                message: "Username can't be empty"
+              }
+            }
+          },
+          email:{
+            validators:{
+              notEmpty:{
+                message: "Email can't be empty"
+              },
+              emailAddress:{
+                message: "Please enter a valid email address"
+              }
+            }
+          },
+          password:{
+            validators:{
+              notEmpty:{
+                message: "Password can't be empty"
+              }
+            },
+              identical:{
+                field: "password_confirmation",
+                message: "msh zy aly t7t"
+              }
+          },
+          password_confirmation:{
+            validators:{
+              notEmpty:{
+                message: "Password confirmation is required"
+              },
+              identical:{
+                field: "password",
+                message: "msh zy aly foo2"
+              }
+            }
+          }
+        }
+      });
+  });
+</script>

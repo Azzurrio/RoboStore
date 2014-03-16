@@ -1,36 +1,53 @@
-html, body
-{
-    height: 100%;
-    background-image: url("/assets/roboto.jpg");
-	background-size: 940px 705px;
-	background-repeat: no-repeat;
-}
-h2{
-	margin-bottom: 20px;
-}
-
-.sign-form-wrapper{
-	width: 400px;
-	margin-right: 200px;
-	margin-top: 20px;
-	.form-group .btn{
-		width:150px;
-		margin:auto;
-		display: block;
-		margin-top: 20px;
+	html, body
+	{
+	    height: 100%;
+	    background-image: url("/assets/roboto.jpg");
+		background-size: 940px 705px;
+		background-repeat: no-repeat;
 	}
-}
-#sign-in-wrapper{
-	margin-top: 60px;
-}
-.social-sign-wrapper{
-	a{width:195px;}	
-	p{width:120px;margin: 10px auto;}
-}
-.btn-google-plus{
-	float:right;
-}
-#full-name-group input{
-	width: 195px;
-	display: inline-block;
-}
+	h2{
+		margin-bottom: 20px;
+	}
+
+	.sign-form-wrapper{
+		width: 600px;
+		margin-right: 100px;
+		margin-top: 20px;
+		.form-group input[type='submit']{
+			width:150px;
+			margin:auto;
+			display: block;
+			margin: auto;
+		}
+		form .form-group:nth-child(6) label{
+			padding-top: 0;
+			padding-left: 40px;
+		}
+	}
+	#sign-in-wrapper{
+		margin-top: 60px;
+		width:388px;
+	}
+	.social-sign-wrapper{
+		a{width:192px;display: inline-block;}	
+		p{width:120px;margin: 10px auto;}
+	}
+	#full-name-group {
+		margin-left: -15px;
+		margin-right: -15px;
+		margin-bottom: 15px;
+		.form-group{margin:0px}
+		.form-group:nth-child(2){padding-right:3px;i{right:3px}}
+		.form-group:nth-child(3){padding-left:3px}
+		
+	}
+	#full-name-group:after{
+		clear:both;
+	}
+	#full-name-group:after, #full-name-group:before{
+		content: " ";
+		display: table;
+	}
+	.help-block{
+		margin-bottom: -8px !important;
+	}

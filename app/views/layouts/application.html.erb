@@ -57,7 +57,7 @@
       </div>
     </div>
   </div>
-  <%unless params.required(:controller) == "home" %>
+  <%unless params.required(:controller) == "home" && params.required(:action) == "index" %>
     <div class='container'>
       <%= yield %>
     </div>
