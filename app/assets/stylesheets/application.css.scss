@@ -9,18 +9,21 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *= require_self
-
+ *= require bootstrap-social
+ *= require font-awesome
  */
 
 @import 'bootstrap';
 @import url(http://fonts.googleapis.com/css?family=Audiowide);
 
-
 body {
 	padding-top:70px;
 	padding-bottom: 40px;
 	color: #5a5a5a;
-	box-shadow: inset 0 0 100px rgba(0,0,0,.5);	
+	box-shadow: inset 0 0 30px rgba(0,0,0,.5);	
+}
+.navbar, h1,h2{
+	font-family: 'Audiowide', cursive;
 }
 
 /* CUSTOMIZE THE MAIN NAVBAR
@@ -33,7 +36,6 @@ body {
 	right: 0;
 	left: 0;
 	z-index: 20;
-	a{color: white !important;}
 	/* Flip around the padding for proper display in narrow viewports */
 	.container {
 		padding-right: 0;
@@ -43,16 +45,24 @@ body {
 	.navbar {
 		padding-right: 15px;
 		padding-left: 15px;
-		background-color: black;
+		background-color: transparent;
 		border-bottom: none;
-		font-family: 'Audiowide', cursive;
-		.active a{background-color: transparent !important;}
+	}
+	ul.navbar-right{
+		margin-right:20px !important;
+	}
+	 .navbar-brand{
+		font-size: 20px;
+		font-weight: bold;
+		color: black;
+	}
+	.navbar-brand:hover{
+		color:black;
 	}
 }
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */
-
 @media (min-width: 768px) {
 	/* Navbar positioning foo */
 	.navbar-wrapper {

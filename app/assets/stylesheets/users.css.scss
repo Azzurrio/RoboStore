@@ -1,0 +1,32 @@
+html, body
+{
+    height: 100%;
+    background-image: url("/assets/roboto.jpg");
+	background-size: 940px 705px;
+	background-repeat: no-repeat;
+}
+h2{
+	margin-bottom: 20px;
+}
+
+.sign-form-wrapper{
+	width: 400px;
+	margin-right: 200px;
+	margin-top: 50px;
+
+
+	.btn-success{
+		width:150px;
+		margin:auto;
+		display: block;
+		margin-top: 30px;
+	}
+}
+
+.social-sign-wrapper{
+	a{width:195px;}
+	p{width:120px;margin: 10px auto;}
+}
+.btn-google-plus{
+	float:right;
+}

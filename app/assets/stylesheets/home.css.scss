@@ -1,12 +1,24 @@
 /* Removing Extra top-padding */
 body {
 	padding-top:0;
+	box-shadow: inset 0 0 100px rgba(0,0,0,.5);
 }
 /* Customize navbar */
 .navbar-wrapper .navbar {
  	background-color: transparent;
+ 	border-bottom: none;
  	.navbar-brand{
 		font-size: 40px;
+		color: white;
+		text-shadow: 0 0 8px white;
+	}
+	.active a{background-color: transparent !important;}
+	
+	li 	a{color: #E2E2E2}
+	
+	.navbar-nav a:hover{
+		color: white;
+		text-shadow: 0 0 1px white;
 	}
 }
 
